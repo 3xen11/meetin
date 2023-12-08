@@ -6,7 +6,7 @@ import RoomCard from '../components/RoomCard';
 import { useSelector } from 'react-redux';
 import { NavigationTypes } from '../provider/store/types';
 
-const page = () => {
+const Page = () => {
   const [view, setView] = useState(true);
   const { darkMode } = useSelector(
     (store: NavigationTypes) => store.navigation
@@ -142,4 +142,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
