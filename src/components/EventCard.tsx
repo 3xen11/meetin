@@ -1,45 +1,74 @@
-import React from 'react';
-import Image from 'next/image';
+'use client';
+import React, { useState } from 'react';
+import HeartButton from './HeartButton';
+// ICONS
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import { RiMapPinLine } from 'react-icons/ri';
+import { BsDoorOpen } from 'react-icons/bs';
 
 const EventCard = () => {
+  const [isHeartChecked, setIsHeartChecked] = useState(false);
+
+  const handleHeartClick = () => {
+    setIsHeartChecked(!isHeartChecked);
+  };
+
   return (
-    <div className="bg-[#d2e5f4] w-11/12 mx-auto my-5 h-44 md:h-60 rounded-xl flex flex-wrap ">
-      <div className="bg-white w-4/12 hidden md:block">
-        <Image
-          src="/mountains.jpg"
-          layout="fill"
-          objectFit="cover"
-          alt="Mountains"
-        />
-      </div>
-      <div className="rounded-l-xl p-2 w-10/12 md:w-6/12 -ml-4 bg-[#d2e5f4]">
-        <div className="h-5/6">
+    <div className="bg-[#e6e6e6] w-11/12 mx-auto my-5  sm:h-60 flex-col flex flex-wrap overflow-hidden relative shadow-md bg-test hover:border-b-4 border-[#E37BFF] transition-all duration-75">
+      {/* -- HEART -- */}
+
+      <HeartButton
+        top={'top-3'}
+        right={'right-3'}
+        isChecked={isHeartChecked}
+        onClick={handleHeartClick}
+      />
+
+      {/* -- DESCRIPTION -- */}
+      <div className="z-10 w-full h-full flex flex-col justify-between p-2">
+        <div className="flex flex-col gap-2">
           {' '}
-          <h5 className=" text-lg md:text-2xl text-[#2f85ca] font-bold cursor-pointer">
+          <h5 className="w-fit p-1 max-w-[80%] sm:max-w-[90%] text-lg sm:text-2xl font-bold cursor-pointer backdrop-blur-xl text-white">
             Polish Hip-Hop Festival 2024
           </h5>
-          <p className=" text-xs md:text-sm">04/07/2024</p>
-          <p className=" text-xs md:text-sm">Płock</p>
-          <div className="flex  mt-4 text-xs md:text-sm">
-            {' '}
-            [ikona]
-            <p className=" text-xs md:text-sm">2/5</p>
+          <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
+            <FaRegCalendarAlt className="fill-white h-5 w-5" />{' '}
+            <span className="text-white">04/07/2024</span>
+          </p>
+          <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
+            <RiMapPinLine className="fill-white h-5 w-5" />{' '}
+            <span className="text-white">Płock / Polska</span>
+          </p>
+          <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
+            <BsDoorOpen className="fill-white h-5 w-5" />{' '}
+            <span className="text-white">Ilość pokoi: 25</span>
+          </p>
+        </div>
+
+        <div className="flex justify-between items-center w-full">
+          <div className=" flex flex-wrap gap-2 mt-2 sm:mt-0">
+            <p className="cursor-pointer flex items-center text-center text-xs sm:text-sm backdrop-blur-xl p-1 text-white">
+              #plhhf
+            </p>
+            <p className="cursor-pointer flex items-center text-center text-xs sm:text-sm backdrop-blur-xl p-1 text-white">
+              #hip-hop
+            </p>
+            <p className="cursor-pointer flex items-center text-center text-xs sm:text-sm backdrop-blur-xl p-1 text-white">
+              #koncert
+            </p>
+            <p className="cursor-pointer flex items-center text-center text-xs sm:text-sm backdrop-blur-xl p-1 text-white">
+              #muzyka
+            </p>
           </div>
+          <p className="text-center text-center flex items-center backdrop-blur-xl text-white w-fit p-1 h-fit text-sm sm:text-2xl mt-2 ml-2">
+            9999 PLN
+          </p>
         </div>
-        <div className=" flex gap-2">
-          <p className="text-[#2f85ca] cursor-pointer">#tag</p>
-          <p className="text-[#2f85ca] cursor-pointer">#tag</p>
-          <p className="text-[#2f85ca] cursor-pointer">#tag</p>
-          <p className="text-[#2f85ca] cursor-pointer">#tag</p>
-        </div>
-      </div>
-      <div className="w-2/12 flex-col justify-between h-full flex py-2 border-l-2 border-[#519bd6]">
-        <p className="py-2  text-xs md:text-sm -mb-1 md:mb-2 text-center">
-          serce
-        </p>
       </div>
     </div>
   );
 };
 
 export default EventCard;
+
+// bg - [#cdbde0];
