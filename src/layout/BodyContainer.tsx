@@ -12,7 +12,7 @@ const BodyContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className={`${
-        darkMode ? 'bg-[#1d1d1d]' : 'bg-[#f7fafd]'
+        darkMode ? 'bg-darkMode-background' : 'bg-lightMode-background'
       } min-h-screen flex flex-col`}
     >
       {children}

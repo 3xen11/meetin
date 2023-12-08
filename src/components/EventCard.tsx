@@ -37,7 +37,7 @@ const EventCard = () => {
           </p>
           <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
             <RiMapPinLine className="fill-white h-5 w-5" />{' '}
-            <span className="text-white">Płock / Polska</span>
+            <span className="text-white">Płock/Polska</span>
           </p>
           <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
             <BsDoorOpen className="fill-white h-5 w-5" />{' '}

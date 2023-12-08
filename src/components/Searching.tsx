@@ -11,10 +11,10 @@ const Searching = () => {
   return (
     <div
       className={`${
-        darkMode ? 'bg-[#424242]' : 'bg-[#eeeeee] border-b-2'
+        darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light border-b-2'
       } w-full flex h-52  ${searching ? '' : 'hidden'}`}
     >
-      <div className="w-11/12 max-w-[1500px]  mx-auto bg-red-600 p-4">test</div>
+      <div className="w-11/12 max-w-[1500px]  mx-auto  p-4">test</div>
     </div>
   );
 };
