@@ -28,7 +28,7 @@ const Navigation = () => {
         darkMode ? 'bg-[#2c2c2c] border-[#E37BFF]' : 'bg-white'
       } w-full h-16 border-b-2`}
     >
-      <div className="w-11/12 max-w-[1500px] bg-whtie mx-auto h-full flex items-center justify-between ">
+      <div className="w-11/12 max-w-[1500px] mx-auto h-full flex items-center justify-between ">
         <div
           className={`${
             darkMode ? 'text-white' : ''
@@ -39,9 +39,9 @@ const Navigation = () => {
         </div>
         {/* ------------------------------------------------- */}
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-5">
           {/* ------------------ DARK MODE ------------------ */}
-          <div className="w-fit ">
+          <div className="w-fit -mr-2">
             <label
               className=" h-12 w-12 rounded-full grid place-items-center cursor-pointer  leading-4"
               htmlFor="switch"
@@ -83,8 +83,15 @@ const Navigation = () => {
               </div>
             </label>
           </div>
+          {/* ------------- WYSZUKIWANIE --------------------- */}
+          <IoSearch
+            className={`lg:hidden ${
+              darkMode ? 'fill-white' : ''
+            } w-7 h-7 hover:fill-[#E37BFF] cursor-pointer hover:scale-110 transition-all active:scale-100 font-bold`}
+            onClick={() => dispatch(showSearching())}
+          />
           {/* ------------- MOBILE MENU ----------------- */}
-          <div id="menuToggle" className="sm:hidden ml-4">
+          <div id="menuToggle" className="sm:hidden">
             <input id="checkbox" type="checkbox" />
             <label
               className="toggle"
@@ -111,14 +118,8 @@ const Navigation = () => {
             </label>
           </div>
           {/* ------------------------------------------------- */}
-          <div className="hidden sm:flex gap-5 items-center">
-            <IoSearch
-              className={`${
-                darkMode ? 'fill-white' : ''
-              } w-7 h-7 hover:fill-[#E37BFF] cursor-pointer hover:scale-110 transition-all active:scale-100 font-bold`}
-              onClick={() => dispatch(showSearching())}
-            />
 
+          <div className="hidden sm:flex gap-5 items-center">
             <div
               className={`group  flex gap-2 cursor-pointer hover:scale-105 transition-all active:scale-100 items-center`}
             >

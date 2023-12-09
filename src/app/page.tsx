@@ -5,6 +5,7 @@ import EventCard from '../components/EventCard';
 import RoomCard from '../components/RoomCard';
 import { useSelector } from 'react-redux';
 import { NavigationTypes } from '../provider/store/types';
+import PopularTags from '../components/PopularTags';
 
 const Page = () => {
   const [view, setView] = useState(true);
@@ -32,93 +33,41 @@ const Page = () => {
       {/* ----------------------------------- */}
 
       <div className="flex">
-        <div
-          className={`${
-            darkMode ? 'bg-[#353535]' : 'bg-[#e4e4e4]'
-          } w-3/12 h-fit hidden lg:block  mt-5 flex-col`}
-        >
+        <div className="w-3/12 hidden lg:flex flex-col">
+          <PopularTags darkMode={darkMode} />
+          {/* -------------------------- */}
+
           <div
             className={`${
-              darkMode ? 'border-[#fff]' : 'border-[#4b4b4b]'
-            } text-center border-b-2 h-12 flex items-center justify-center`}
+              darkMode ? 'bg-[#353535]' : 'bg-[#e4e4e4]'
+            } w-full h-fit hidden lg:block  mt-5 flex-col`}
           >
-            <p className={`${darkMode ? 'text-white' : ''} text-xl font-bold`}>
-              Popularne tagi
-            </p>
+            <div
+              className={`${
+                darkMode ? 'border-[#fff]' : 'border-[#4b4b4b]'
+              } text-center border-b-2 h-12 flex items-center justify-center`}
+            >
+              <p
+                className={`${darkMode ? 'text-white' : ''} text-xl font-bold`}
+              >
+                Filtrowanie
+              </p>
+            </div>
+            <div className=" flex gap-3 flex-wrap p-4 overflow-hidden">
+              <p>wyszukiwanie</p>
+              <p>płeć</p>
+              <p>miasto</p>
+              <p>kraj</p>
+              <p>cena</p>
+              <p>data</p>
+              <p>wiek</p>
+              <p></p>
+            </div>
           </div>
-          <div className=" flex gap-3 flex-wrap p-4 overflow-hidden">
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #góry
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #morze
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #koncert
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #turcja
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #malta
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #włochy
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #sport
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #piłka_nożna
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #standup
-            </p>
-            <p
-              className={` ${
-                darkMode ? 'bg-[#0e0e0e] text-white' : 'bg-white'
-              }  p-2 hover:scale-105 active:scale-100 transition-all cursor-pointer`}
-            >
-              #klub
-            </p>
-          </div>
+
+          {/* -------------------------- */}
         </div>
+
         <div className={`w-11/12 lg:w-9/12 ${view ? 'hidden' : ''} mx-auto`}>
           <RoomCard />
           <RoomCard />

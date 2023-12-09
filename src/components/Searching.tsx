@@ -10,7 +10,7 @@ const Searching = () => {
 
   return (
     <div
-      className={`${
+      className={`lg:hidden ${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light border-b-2'
       } w-full flex h-52  ${searching ? '' : 'hidden'}`}
     >

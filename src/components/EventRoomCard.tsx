@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { RiMapPinLine } from 'react-icons/ri';
 import { BsDoorOpen } from 'react-icons/bs';
-import { ImManWoman } from 'react-icons/im';
 
 const RoomCard = () => {
   const [isHeartChecked, setIsHeartChecked] = useState(false);
@@ -88,7 +87,7 @@ const RoomCard = () => {
           </p>
           <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
             {' '}
-            <ImManWoman
+            <BsDoorOpen
               className={`${
                 darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
               } h-5 w-5`}
@@ -98,7 +97,7 @@ const RoomCard = () => {
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               }`}
             >
-              Miejsca: 2/5
+              Ilość pokoi: 25
             </span>
           </p>
         </div>
