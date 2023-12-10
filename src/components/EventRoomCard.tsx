@@ -6,7 +6,7 @@ import { NavigationTypes } from '../provider/store/types';
 import { useSelector } from 'react-redux';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { RiMapPinLine } from 'react-icons/ri';
-import { BsDoorOpen } from 'react-icons/bs';
+import { ImManWoman } from 'react-icons/im';
 
 const RoomCard = () => {
   const [isHeartChecked, setIsHeartChecked] = useState(false);
@@ -23,7 +23,7 @@ const RoomCard = () => {
     <div
       className={`${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light'
-      }  w-full lg:w-11/12 mx-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap overflow-hidden relative shadow-md`}
+      }  w-full lg:w-11/12 mx-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap  relative shadow-md`}
     >
       {/* -- HEART -- */}
       <div
@@ -87,7 +87,7 @@ const RoomCard = () => {
           </p>
           <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
             {' '}
-            <BsDoorOpen
+            <ImManWoman
               className={`${
                 darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
               } h-5 w-5`}
@@ -97,7 +97,7 @@ const RoomCard = () => {
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               }`}
             >
-              Ilość pokoi: 25
+              Miejsca: 2/5
             </span>
           </p>
         </div>

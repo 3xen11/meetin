@@ -6,7 +6,6 @@ import { NavigationTypes } from '../provider/store/types';
 import { useSelector } from 'react-redux';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { RiMapPinLine } from 'react-icons/ri';
-import { BsDoorOpen } from 'react-icons/bs';
 import { ImManWoman } from 'react-icons/im';
 
 const RoomCard = () => {
@@ -30,7 +29,7 @@ const RoomCard = () => {
       <div
         className={`${
           darkMode ? 'bg-darkMode-dark' : 'bg-white'
-        } w-full sm:w-5/12 p-2 h-full  overflow-hidden  relative`}
+        } w-full sm:w-5/12 p-2 h-full relative`}
       >
         <HeartButton
           top={'top-4'}

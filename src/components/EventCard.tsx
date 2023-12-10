@@ -14,7 +14,7 @@ const EventCard = () => {
   };
 
   return (
-    <div className="bg-[#e6e6e6] w-11/12 mx-auto my-5  sm:h-60 flex-col flex flex-wrap overflow-hidden relative shadow-md bg-test hover:border-b-4 border-[#E37BFF] transition-all duration-75">
+    <div className="bg-[#e6e6e6] w-11/12 mx-auto my-5  sm:h-60 flex-col flex flex-wrap relative shadow-md bg-test hover:border-b-4 border-[#E37BFF] transition-all duration-75">
       {/* -- HEART -- */}
 
       <HeartButton
