@@ -23,7 +23,7 @@ const RoomCard = () => {
     <div
       className={`${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light'
-      }  w-full lg:w-11/12 mx-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap  relative shadow-md`}
+      }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap relative shadow-md`}
     >
       {/* -- HEART -- */}
       <div

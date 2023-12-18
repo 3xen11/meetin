@@ -14,17 +14,17 @@ const Page = () => {
   );
 
   return (
-    <section className="w-full flex flex-col">
+    <section className="w-full flex flex-col ">
       {/* ------------------------------------------------- */}
 
-      <div className="w-fit mx-auto mt-5">
+      <div className="w-fit mx-auto mt-5 ">
         <button
           onClick={() => setView(!view)}
           className={`${
             darkMode
               ? 'text-[#f7fafd] after:bg-[#f7fafd]'
               : 'text-[#4b4b4b] after:bg-[#4b4b4b] '
-          } font-bold text-2xl `}
+          } font-bold text-2xl`}
         >
           {view ? 'Eksploruj' : 'Oficjalne wydarzenia'}
         </button>

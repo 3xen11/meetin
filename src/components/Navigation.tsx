@@ -41,7 +41,7 @@ const Navigation = () => {
 
         <div className="flex justify-between items-center gap-5">
           {/* ------------------ DARK MODE ------------------ */}
-          <div className="w-fit -mr-2">
+          <div className="w-fit -mr-2 hover:scale-110 active:scale-100 transition-all">
             <label
               className=" h-12 w-12 rounded-full grid place-items-center cursor-pointer  leading-4"
               htmlFor="switch"
