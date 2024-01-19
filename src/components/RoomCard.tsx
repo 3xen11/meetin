@@ -23,7 +23,7 @@ const RoomCard = () => {
     <div
       className={`${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light'
-      }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap overflow-hidden relative shadow-md hover:scale-[1.01] transition-all`}
+      }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap relative shadow-md hover:scale-[1.01] transition-all`}
     >
       {/* -- HEART -- */}
       <div
@@ -57,7 +57,7 @@ const RoomCard = () => {
           >
             Polish Hip-Hop Festival 2024
           </h5>
-          <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
+          <p className={`text-xs sm:text-sm flex p-1 gap-2 flex`}>
             <FaRegCalendarAlt
               className={`${
                 darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'

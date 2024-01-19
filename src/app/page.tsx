@@ -6,6 +6,7 @@ import RoomCard from '../components/RoomCard';
 import { useSelector } from 'react-redux';
 import { NavigationTypes } from '../provider/store/types';
 import PopularTags from '../components/PopularTags';
+import Filtering from '../components/Filtering';
 
 const Page = () => {
   const [view, setView] = useState(true);
@@ -37,33 +38,8 @@ const Page = () => {
           <PopularTags darkMode={darkMode} />
           {/* -------------------------- */}
 
-          <div
-            className={`${
-              darkMode ? 'bg-[#353535]' : 'bg-[#e4e4e4]'
-            } w-full h-fit hidden lg:block  mt-5 flex-col`}
-          >
-            <div
-              className={`${
-                darkMode ? 'border-[#fff]' : 'border-[#4b4b4b]'
-              } text-center border-b-2 h-12 flex items-center justify-center`}
-            >
-              <p
-                className={`${darkMode ? 'text-white' : ''} text-xl font-bold`}
-              >
-                Filtrowanie
-              </p>
-            </div>
-            <div className=" flex gap-3 flex-wrap p-4 overflow-hidden">
-              <p>wyszukiwanie</p>
-              <p>płeć</p>
-              <p>miasto</p>
-              <p>kraj</p>
-              <p>cena</p>
-              <p>data</p>
-              <p>wiek</p>
-              <p></p>
-            </div>
-          </div>
+          {/* filtrowanie */}
+          <Filtering darkMode={darkMode} />
 
           {/* -------------------------- */}
         </div>
