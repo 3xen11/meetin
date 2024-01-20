@@ -5,3 +5,9 @@ export type NavigationTypes = {
     mobileMenu: boolean;
   };
 };
+
+export type EventsTypes = {
+  events: {
+    eventsCardsDisplay: boolean;
+  };
+};
