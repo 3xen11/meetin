@@ -6,7 +6,7 @@ const page = () => {
   // const { darkMode } = useSelector(
   //   (store: NavigationTypes) => store.navigation
   // );
-  return <div>page</div>;
+  return <h1>page</h1>;
 };
 
 export default page;
