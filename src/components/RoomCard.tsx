@@ -1,23 +1,67 @@
 'use client';
-import React, { useState } from 'react';
 import Image from 'next/image';
 import HeartButton from './HeartButton';
 import { NavigationTypes } from '../provider/store/types';
 import { useSelector } from 'react-redux';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { RiMapPinLine } from 'react-icons/ri';
-import { ImManWoman } from 'react-icons/im';
+import { ImMan } from 'react-icons/im';
+import { ImWoman } from 'react-icons/im';
+import { BsHourglassSplit } from 'react-icons/bs';
 
-const RoomCard = () => {
-  const [isHeartChecked, setIsHeartChecked] = useState(false);
+type ToggleFavoriteAction = {
+  type: 'TOGGLE_FAVORITE';
+  payload: {
+    id: string;
+  };
+};
 
+type HeartState = {
+  favoriteButtonChecked: boolean;
+  dispatch: React.Dispatch<ToggleFavoriteAction>;
+  toggleFavoriteButton: any;
+};
+
+type RoomsType = {
+  id: string;
+  title: string;
+  date: string;
+  city: string;
+  country: string;
+  gender: string;
+  spots: number;
+  taken_spots: number;
+  min_age: number;
+  max_age: number;
+  tags: string[];
+  price: number;
+  currency: string;
+  favorite: boolean;
+};
+
+interface RoomCardProps extends HeartState, RoomsType {}
+
+const RoomCard: React.FC<RoomCardProps> = ({
+  toggleFavoriteButton,
+  id,
+  title,
+  date,
+  city,
+  country,
+  gender,
+  spots,
+  taken_spots,
+  min_age,
+  max_age,
+  tags,
+  price,
+  currency,
+  favorite,
+  dispatch,
+}) => {
   const { darkMode } = useSelector(
     (store: NavigationTypes) => store.navigation
   );
-
-  const handleHeartClick = () => {
-    setIsHeartChecked(!isHeartChecked);
-  };
 
   return (
     <div
@@ -34,8 +78,10 @@ const RoomCard = () => {
         <HeartButton
           top={'top-4'}
           right={'right-5'}
-          isChecked={isHeartChecked}
-          onClick={handleHeartClick}
+          toggleFavoriteButton={() => toggleFavoriteButton({ id })}
+          favorite={favorite}
+          id={id}
+          dispatch={dispatch}
         />
         <Image
           src="/mountains.jpg"
@@ -55,7 +101,7 @@ const RoomCard = () => {
               darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
             } text-lg sm:text-2xl font-bold cursor-pointer  `}
           >
-            Polish Hip-Hop Festival 2024
+            {title}
           </h5>
           <p className={`text-xs sm:text-sm flex p-1 gap-2 flex`}>
             <FaRegCalendarAlt
@@ -68,7 +114,7 @@ const RoomCard = () => {
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               }`}
             >
-              04/07/2024
+              {date}
             </span>
           </p>
           <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
@@ -82,12 +128,48 @@ const RoomCard = () => {
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               }`}
             >
-              Płock/Polska
+              {city}/{country}
             </span>
           </p>
+          <div className={`text-xs sm:text-sm flex p-1 gap-2`}>
+            {gender === 'male' ? (
+              <ImMan
+                className={`${
+                  darkMode ? 'fill-blue-500' : 'fill-blue-500'
+                } h-5 w-5`}
+              />
+            ) : gender === 'female' ? (
+              <ImWoman
+                className={`${
+                  darkMode ? 'fill-pink-500' : 'fill-pink-500'
+                } h-5 w-5`}
+              />
+            ) : (
+              <div className="flex">
+                <ImMan
+                  className={`${
+                    darkMode ? 'fill-blue-500' : 'fill-blue-500'
+                  } h-5 w-5 -ml-1`}
+                />
+                <ImWoman
+                  className={`${
+                    darkMode ? 'fill-pink-500' : 'fill-pink-500'
+                  } h-5 w-5 -ml-2`}
+                />
+              </div>
+            )}
+
+            <span
+              className={`${
+                darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+              }`}
+            >
+              Miejsca: {taken_spots}/{spots}
+            </span>
+          </div>
+          {/* wiek */}
           <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
-            {' '}
-            <ImManWoman
+            <BsHourglassSplit
               className={`${
                 darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
               } h-5 w-5`}
@@ -97,49 +179,33 @@ const RoomCard = () => {
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               }`}
             >
-              Miejsca: 2/5
+              Wiek: {min_age}-{max_age}
             </span>
           </p>
+          {/* wiek */}
         </div>
 
         <div className="flex flex-col">
           <div className="flex justify-between">
             <div className="flex gap-2 flex-wrap">
-              <p
-                className={` ${
-                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-                } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}
-              >
-                #plhhf
-              </p>
-              <p
-                className={` ${
-                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-                } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}
-              >
-                #hiphop
-              </p>
-              <p
-                className={` ${
-                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-                } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}
-              >
-                #koncert
-              </p>
-              <p
-                className={` ${
-                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-                } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}
-              >
-                #muzyka
-              </p>
+              {tags.map((tag) => {
+                return (
+                  <p
+                    className={` ${
+                      darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+                    } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}
+                  >
+                    #{tag}
+                  </p>
+                );
+              })}
             </div>
             <p
               className={` ${
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
               } text-center flex items-center text-darkMode-text w-fit p-1 h-fit text-sm sm:text-xl`}
             >
-              9999 PLN
+              {price} {currency}
             </p>
           </div>
         </div>

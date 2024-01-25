@@ -1,6 +1,11 @@
 'use client';
+// DUMMY DATA
+// import roomsData from '../../data/roomsData';
 // REDUCERS
-import { switchEventRoomsDisplay } from '../provider/features/events/eventsSlice';
+import {
+  switchEventRoomsDisplay,
+  toggleFavoriteButton,
+} from '../provider/features/events/eventsSlice';
 // TYPES
 import { NavigationTypes, EventsTypes } from '../provider/store/types';
 // REDUX
@@ -14,7 +19,7 @@ import RoomCard from '../components/RoomCard';
 const Page = () => {
   const dispatch = useDispatch();
 
-  const { eventsCardsDisplay } = useSelector(
+  const { eventsCardsDisplay, favoriteButtonChecked, roomsData } = useSelector(
     (store: EventsTypes) => store.events
   );
 
@@ -51,7 +56,18 @@ const Page = () => {
             eventsCardsDisplay ? 'hidden' : ''
           } mx-auto`}
         >
-          <RoomCard />
+          {Array.isArray(roomsData) ? (
+            roomsData.map((roomData) => (
+              <RoomCard
+                key={roomData.id}
+                dispatch={dispatch}
+                toggleFavoriteButton={toggleFavoriteButton}
+                {...roomData}
+              />
+            ))
+          ) : (
+            <p>Error: roomsData is not an array</p>
+          )}
         </div>
         {/* OFFICIAL EVENTS */}
         <div
@@ -59,7 +75,21 @@ const Page = () => {
             eventsCardsDisplay ? '' : 'hidden'
           } mx-auto`}
         >
-          <EventCard />
+          <EventCard
+            favoriteButtonChecked={favoriteButtonChecked}
+            dispatch={dispatch}
+            toggleFavoriteButton={toggleFavoriteButton}
+          />
+          <EventCard
+            favoriteButtonChecked={favoriteButtonChecked}
+            dispatch={dispatch}
+            toggleFavoriteButton={toggleFavoriteButton}
+          />
+          <EventCard
+            favoriteButtonChecked={favoriteButtonChecked}
+            dispatch={dispatch}
+            toggleFavoriteButton={toggleFavoriteButton}
+          />
         </div>
       </div>
     </section>

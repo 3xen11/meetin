@@ -1,12 +1,19 @@
 'use client';
 import React, { useState } from 'react';
+import { Dispatch } from 'react';
 import HeartButton from './HeartButton';
 // ICONS
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { RiMapPinLine } from 'react-icons/ri';
 import { BsDoorOpen } from 'react-icons/bs';
 
-const EventCard = () => {
+type HeartState = {
+  favoriteButtonChecked: boolean;
+  dispatch: any;
+  toggleFavoriteButton: Function;
+};
+
+const EventCard: React.FC<HeartState> = () => {
   const [isHeartChecked, setIsHeartChecked] = useState(false);
 
   const handleHeartClick = () => {

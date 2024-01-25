@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/features/**/*.js"
+    "src/features/**/*.js",
+    "src/provider/features/**/*.tsx",
+    "src/provider/features/events/eventsSlice.tsx" // "src/provider/features/**/*.js"
   ],
   "exclude": ["node_modules"]
 }

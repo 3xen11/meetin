@@ -17,6 +17,10 @@ export default function RootLayout({
   return (
     <ReduxProvider>
       <html lang="pl">
+        <head>
+          <title>MeetIN</title>
+          <meta name="Room project" content="Description" />
+        </head>
         <body className="inter.className">
           <BodyContainer>
             <Navigation />
