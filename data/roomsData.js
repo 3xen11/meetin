@@ -16,6 +16,8 @@ export default [
     price: 9999,
     currency: 'PLN',
     favorite: false,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a condimentum justo. Ut efficitur ante velit, eget venenatis ipsum sollicitudin lacinia. Phasellus placerat velit pellentesque volutpat convallis. Curabitur turpis lectus, posuere non elementum sit amet, aliquam at sem. Nulla placerat felis augue, eget feugiat nibh vestibulum in. Vestibulum iaculis turpis lectus, eget dignissim diam vehicula sit amet. Ut a fringilla ante, eu gravida neque. Duis cursus viverra velit, id viverra justo ultricies placerat. Donec feugiat pretium rutrum. Curabitur a commodo ex. Ut tincidunt pretium risus sed pulvinar. Vestibulum in justo non lectus condimentum blandit sed id urna. Suspendisse iaculis tincidunt sagittis. Integer ornare, augue sit amet aliquam sodales, ligula ipsum iaculis velit, eu fermentum turpis nunc eget erat. Quisque lobortis mattis lacus mattis vulputate.',
   },
   {
     id: nanoid(),
@@ -32,6 +34,8 @@ export default [
     price: 450,
     currency: 'PLN',
     favorite: false,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a condimentum justo. Ut efficitur ante velit, eget venenatis ipsum sollicitudin lacinia. Phasellus placerat velit pellentesque volutpat convallis. Curabitur turpis lectus, posuere non elementum sit amet, aliquam at sem. Nulla placerat felis augue, eget feugiat nibh vestibulum in. Vestibulum iaculis turpis lectus, eget dignissim diam vehicula sit amet. Ut a fringilla ante, eu gravida neque. Duis cursus viverra velit, id viverra justo ultricies placerat. Donec feugiat pretium rutrum. Curabitur a commodo ex. Ut tincidunt pretium risus sed pulvinar. Vestibulum in justo non lectus condimentum blandit sed id urna. Suspendisse iaculis tincidunt sagittis. Integer ornare, augue sit amet aliquam sodales, ligula ipsum iaculis velit, eu fermentum turpis nunc eget erat. Quisque lobortis mattis lacus mattis vulputate.',
   },
   {
     id: nanoid(),
@@ -48,5 +52,7 @@ export default [
     price: 2450,
     currency: 'EUR',
     favorite: false,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a condimentum justo. Ut efficitur ante velit, eget venenatis ipsum sollicitudin lacinia. Phasellus placerat velit pellentesque volutpat convallis. Curabitur turpis lectus, posuere non elementum sit amet, aliquam at sem. Nulla placerat felis augue, eget feugiat nibh vestibulum in. Vestibulum iaculis turpis lectus, eget dignissim diam vehicula sit amet. Ut a fringilla ante, eu gravida neque. Duis cursus viverra velit, id viverra justo ultricies placerat. Donec feugiat pretium rutrum. Curabitur a commodo ex. Ut tincidunt pretium risus sed pulvinar. Vestibulum in justo non lectus condimentum blandit sed id urna. Suspendisse iaculis tincidunt sagittis. Integer ornare, augue sit amet aliquam sodales, ligula ipsum iaculis velit, eu fermentum turpis nunc eget erat. Quisque lobortis mattis lacus mattis vulputate.',
   },
 ];

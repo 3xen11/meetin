@@ -8,6 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   color: #4b4b4b;
+  font-family: 'Poppins', sans-serif;
 }
 
 /** HEART **/
@@ -231,4 +232,14 @@ button:after {
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: width, left;
+}
+
+/* HIDE SCROLLBAR */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
