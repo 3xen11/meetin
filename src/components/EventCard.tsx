@@ -67,7 +67,7 @@ const EventCard: React.FC<HeartState> = () => {
               #muzyka
             </p>
           </div>
-          <p className="text-center text-center flex items-center backdrop-blur-xl text-white w-fit p-1 h-fit text-sm sm:text-2xl mt-2 ml-2">
+          <p className="text-center  flex items-center backdrop-blur-xl text-white w-fit p-1 h-fit text-sm sm:text-2xl mt-2 ml-2">
             9999 PLN
           </p>
         </div>

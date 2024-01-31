@@ -31,12 +31,12 @@ const RoomCard = () => {
           darkMode ? 'bg-darkMode-dark' : 'bg-white'
         } w-full sm:w-5/12 p-2 h-full  overflow-hidden  relative`}
       >
-        <HeartButton
+        {/* <HeartButton
           top={'top-4'}
           right={'right-5'}
           isChecked={isHeartChecked}
           onClick={handleHeartClick}
-        />
+        /> */}
         <Image
           src="/mountains.jpg"
           alt="Mountains"
