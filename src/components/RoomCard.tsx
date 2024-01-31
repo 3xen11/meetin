@@ -37,7 +37,6 @@ type RoomsType = {
   price: number;
   currency: string;
   favorite: boolean;
-  key: string;
 };
 
 interface RoomCardProps extends HeartState, RoomsType {}
@@ -58,7 +57,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
   price,
   currency,
   favorite,
-  key,
   dispatch,
 }) => {
   const { darkMode } = useSelector(
@@ -67,7 +65,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
 
   return (
     <div
-      key={key}
       className={`${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light'
       }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap relative shadow-md hover:scale-[1.01] transition-all`}
@@ -191,9 +188,10 @@ const RoomCard: React.FC<RoomCardProps> = ({
         <div className="flex flex-col">
           <div className="flex justify-between">
             <div className="flex gap-2 flex-wrap">
-              {tags.map((tag) => {
+              {tags.map((tag, i) => {
                 return (
                   <p
+                    key={i}
                     className={` ${
                       darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
                     } cursor-pointer text-xs flex items-center text-center sm:text-sm text-darkMode-text`}

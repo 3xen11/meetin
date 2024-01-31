@@ -57,14 +57,18 @@ const Page = () => {
           } mx-auto`}
         >
           {Array.isArray(roomsData) ? (
-            roomsData.map((roomData) => (
-              <RoomCard
-                key={roomData.id}
-                dispatch={dispatch}
-                toggleFavoriteButton={toggleFavoriteButton}
-                {...roomData}
-              />
-            ))
+            roomsData.map((roomData) => {
+              const { id } = roomData;
+
+              return (
+                <RoomCard
+                  key={id}
+                  dispatch={dispatch}
+                  toggleFavoriteButton={toggleFavoriteButton}
+                  {...roomData}
+                />
+              );
+            })
           ) : (
             <p>Error: roomsData is not an array</p>
           )}
