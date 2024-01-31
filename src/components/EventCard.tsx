@@ -24,12 +24,12 @@ const EventCard: React.FC<HeartState> = () => {
     <div className="bg-[#e6e6e6] w-11/12 mx-auto lg:mx-0 lg:ml-auto my-5  sm:h-60 flex-col flex flex-wrap relative shadow-md bg-test hover:border-b-4 border-[#E37BFF] transition-all duration-75">
       {/* -- HEART -- */}
 
-      <HeartButton
+      {/* <HeartButton
         top={'top-3'}
         right={'right-3'}
-        isChecked={isHeartChecked}
-        onClick={handleHeartClick}
-      />
+        // isChecked={isHeartChecked}
+        // onClick={handleHeartClick}
+      /> */}
 
       {/* -- DESCRIPTION -- */}
       <div className="z-10 w-full h-full flex flex-col justify-between p-2">
