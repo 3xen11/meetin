@@ -28,3 +28,9 @@ export type EventsTypes = {
     };
   };
 };
+
+export type LoginTypes = {
+  login: {
+    isSignin: boolean;
+  };
+};
