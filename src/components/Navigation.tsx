@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 // ICONS
 import { IoSearch } from 'react-icons/io5';
 import { GoMail } from 'react-icons/go';
@@ -26,7 +27,7 @@ const Navigation = () => {
     <nav
       className={`${
         darkMode ? 'bg-[#2c2c2c] border-[#E37BFF]' : 'bg-white'
-      } w-full h-16 border-b-2`}
+      } w-full h-16 border-b-2 z-50`}
     >
       <div className="w-11/12 max-w-[1500px] mx-auto h-full flex items-center justify-between ">
         <div
@@ -34,8 +35,9 @@ const Navigation = () => {
             darkMode ? 'text-white' : ''
           } font-bold text-2xl cursor-pointer`}
         >
-          {' '}
-          MEET<span className="text-[#E37BFF] ">IN</span>{' '}
+          <Link href="/">
+            MEET<span className="text-[#E37BFF] ">IN</span>
+          </Link>
         </div>
         {/* ------------------------------------------------- */}
 
@@ -137,7 +139,7 @@ const Navigation = () => {
               </p>
             </div>
             <div
-              className={`group  flex gap-2 cursor-pointer hover:scale-105 transition-all active:scale-100 items-center`}
+              className={`relative group flex gap-2 cursor-pointer hover:scale-105 transition-all active:scale-100 items-center`}
             >
               <VscAccount
                 className={` w-7 h-7 text-[#E37BFF] ${
@@ -145,12 +147,17 @@ const Navigation = () => {
                 } group-hover:fill-[#E37BFF] `}
               />
               <p
-                className={`group-hover:text-[#E37BFF] ${
+                className={`group-hover:text-[#E37BFF]  ${
                   darkMode ? 'text-white' : ''
                 }`}
               >
                 Moje konto
               </p>
+              <ul className="absolute w-40 -ml-4 top-0 z-50">
+                <li className="p-2 shadow-lg hover:text-[#E37BFF] bg-white w-full mt-12 text-center hidden group-hover:block">
+                  <Link href="/login">Zaloguj się</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -158,7 +165,7 @@ const Navigation = () => {
       <div
         className={`${mobileMenu ? 'flex' : 'hidden'} ${
           darkMode ? 'bg-[#4b4b4b]' : 'bg-[#e2e2e2]'
-        } z-40 h-screen w-screen fixed top-16 left-0 justify-center  sm:hidden overflow-scroll`}
+        } z-40 h-screen w-screen fixed top-16 left-0 justify-center  sm:hidden overflow-scroll `}
       >
         <ul className="w-full flex flex-col gap-5 h-fit justify-center items-center overflow-scroll">
           <li
@@ -175,6 +182,7 @@ const Navigation = () => {
           >
             moje pokoje
           </li>
+          <li>Zaloguj się</li>
           <li
             className={`${
               darkMode ? 'text-white' : ''

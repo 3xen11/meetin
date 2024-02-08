@@ -1,13 +1,22 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginTypes } from '@/src/provider/store/types';
-import { changeSignin } from '@/src/provider/features/login/loginSlice';
+import {
+  changeSignin,
+  setLogin,
+} from '@/src/provider/features/login/loginSlice';
 import { NavigationTypes } from '../../provider/store/types';
+import accountsData from '../../../data/accountsData';
+import { DevTool } from '@hookform/devtools';
+import { Console } from 'console';
+
 const Page = () => {
+  const { push } = useRouter();
   const dispatch = useDispatch();
   const form = useForm();
   const { control, register, handleSubmit, setValue } = form;
@@ -17,6 +26,15 @@ const Page = () => {
   const { darkMode } = useSelector(
     (store: NavigationTypes) => store.navigation
   );
+
+  const login = (data: any) => {
+    accountsData.forEach((account) => {
+      if (account.email === data.mail && account.password === data.password) {
+        dispatch(setLogin());
+        push('/');
+      }
+    });
+  };
 
   return (
     <section className="w-full flex justify-center items-center">
@@ -51,6 +69,7 @@ const Page = () => {
             </div>
           </div>
           <form
+            onSubmit={handleSubmit(login)}
             className={`${
               isSignin ? 'flex' : 'hidden'
             } flex-col w-full gap-2 justify-center items-center h-full`}
@@ -61,8 +80,7 @@ const Page = () => {
             <input
               type="text"
               id="mail"
-              //   {...register('search')}
-
+              {...register('mail')}
               className="px-2 w-3/5 h-10 border-2 border-gray-500"
             />
             <label htmlFor="password" className="text-start w-2/3 mt-4">
@@ -71,8 +89,7 @@ const Page = () => {
             <input
               type="text"
               id="password"
-              //   {...register('search')}
-
+              {...register('password')}
               className="px-2 w-3/5 h-10 border-2 border-gray-500"
             />
             <p className="mt-4">Przypomnij hasło</p>
@@ -89,6 +106,7 @@ const Page = () => {
             </div>
             <button className="bg-red-500 mt-6 h-10 w-3/5">Zaloguj</button>
           </form>
+          <DevTool control={control} />
         </div>
         {/* REJESTRACJA */}
         <div

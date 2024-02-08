@@ -289,6 +289,9 @@ const page = ({ params }: { params: { roomId: string } }) => {
           </div>
         </div>
       </div>
+      {/* START MAPA */}
+      <div className="bg-white shadow-lg my-4 h-96 w-1/3 rounded-lg">MAPA</div>
+      {/* KONIEC MAPA */}
       <div className="flex flex-wrap justify-center w-full mt-4 gap-4 mb-5">
         {/* CZAT */}
         <div className="min-h-[24rem] max-h-[50rem] grow p-3 bg-white shadow-lg rounded-lg order-2 lg:order-1  flex justify-center items-center">
