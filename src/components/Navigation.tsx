@@ -9,19 +9,22 @@ import { VscAccount } from 'react-icons/vsc';
 // REDUX
 import { useDispatch, useSelector } from 'react-redux';
 // TYPES
-import { NavigationTypes } from '../provider/store/types';
+import { NavigationTypes, LoginTypes } from '../provider/store/types';
 // REDUCRES
 import {
   switchDarkMode,
   showSearching,
   showMobileMenu,
 } from '../provider/features/navigation/navigationSlice';
+import { setLogout } from '../provider/features/login/loginSlice';
 
 const Navigation = () => {
   const dispatch = useDispatch();
   const { darkMode, mobileMenu } = useSelector(
     (store: NavigationTypes) => store.navigation
   );
+
+  const { isLogged } = useSelector((store: LoginTypes) => store.login);
 
   return (
     <nav
@@ -153,11 +156,33 @@ const Navigation = () => {
               >
                 Moje konto
               </p>
-              <ul className="absolute w-40 -ml-4 top-0 z-50">
-                <li className="p-2 shadow-lg hover:text-[#E37BFF] bg-white w-full mt-12 text-center hidden group-hover:block">
-                  <Link href="/login">Zaloguj się</Link>
-                </li>
-              </ul>
+              <div className="absolute w-40 -ml-4 top-0 z-50">
+                {isLogged ? (
+                  <ul className="shadow-lg mt-12 text-center hidden group-hover:block leading-10">
+                    <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
+                      Moje konto
+                    </li>
+                    <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
+                      Moje pokoje
+                    </li>
+                    <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
+                      Ustawienia
+                    </li>
+                    <li
+                      className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100"
+                      onClick={() => dispatch(setLogout())}
+                    >
+                      Wyloguj się
+                    </li>
+                  </ul>
+                ) : (
+                  <ul className="shadow-lg mt-12 text-center hidden group-hover:block leading-10">
+                    <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
+                      <Link href="/login">Zaloguj się</Link>
+                    </li>
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
         </div>
