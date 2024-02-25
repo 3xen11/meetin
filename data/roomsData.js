@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 export default [
   {
     id: nanoid(),
+    creator: 'Dawid D',
     title: 'Polish Hip-Hop Festival 2024',
     date: '04/07/2024',
     city: 'Płock',
@@ -13,7 +14,7 @@ export default [
     min_age: 18,
     max_age: 25,
     tags: ['plhhf', 'hiphop', 'koncert', 'muzyka'],
-    price: 9999,
+    price: 99999,
     currency: 'PLN',
     favorite: false,
     description:
@@ -21,6 +22,7 @@ export default [
   },
   {
     id: nanoid(),
+    creator: 'Maksymilian',
     title: 'Wyjazd do Ciechocinka',
     date: '01/03/2024',
     city: 'Ciechocinek',
@@ -39,6 +41,7 @@ export default [
   },
   {
     id: nanoid(),
+    creator: 'Anastazja',
     title: 'Wycieczka do Japonii',
     date: '11/06/2024',
     city: 'Tokyo',

@@ -156,11 +156,11 @@ const Navigation = () => {
               >
                 Moje konto
               </p>
-              <div className="absolute w-40 -ml-4 top-0 z-50">
+              <div className="absolute w-60 -ml-4 top-0 z-50">
                 {isLogged ? (
                   <ul className="shadow-lg mt-12 text-center hidden group-hover:block leading-10">
                     <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
-                      Moje konto
+                      <Link href="/account">Monika - kliknij mnie :|</Link>
                     </li>
                     <li className="hover:text-[#E37BFF] bg-white w-full h-10 hover:bg-slate-100">
                       Moje pokoje
@@ -207,7 +207,6 @@ const Navigation = () => {
           >
             moje pokoje
           </li>
-          <li>Zaloguj się</li>
           <li
             className={`${
               darkMode ? 'text-white' : ''
@@ -228,13 +227,6 @@ const Navigation = () => {
             } text-3xl w-3/4 text-center py-2`}
           >
             wyloguj
-          </li>
-          <li
-            className={`${
-              darkMode ? 'text-white' : ''
-            } text-3xl w-3/4 text-center py-2 mb-20`}
-          >
-            hehehe
           </li>
         </ul>
       </div>

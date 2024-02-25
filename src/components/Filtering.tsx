@@ -16,7 +16,7 @@ const Filtering: React.FC<darkModeType> = ({ darkMode }) => {
     <div
       className={`${
         darkMode ? 'bg-[#353535]' : 'bg-[#e4e4e4]'
-      } w-full h-fit hidden lg:block  mt-5 flex-col`}
+      } w-full h-fit hidden lg:block  mt-5 flex-col mb-10`}
     >
       <div
         className={`${

@@ -39,6 +39,9 @@ const EventCard: React.FC<HeartState> = () => {
             Polish Hip-Hop Festival 2024
           </h5>
           <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
+            <span className="text-white">TWÓRCA</span>
+          </p>
+          <p className=" text-xs sm:text-sm  backdrop-blur-xl w-fit p-1 flex items-center gap-2">
             <FaRegCalendarAlt className="fill-white h-5 w-5" />{' '}
             <span className="text-white">04/07/2024</span>
           </p>
@@ -67,7 +70,7 @@ const EventCard: React.FC<HeartState> = () => {
               #muzyka
             </p>
           </div>
-          <p className="text-center  flex items-center backdrop-blur-xl text-white w-fit p-1 h-fit text-sm sm:text-2xl mt-2 ml-2">
+          <p className="text-center min-w-fit flex items-center backdrop-blur-xl text-white w-fit p-1 h-fit text-sm sm:text-lg mt-2 ml-2">
             9999 PLN
           </p>
         </div>

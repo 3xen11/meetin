@@ -17,6 +17,7 @@ import { FaRegStickyNote } from 'react-icons/fa';
 import { FaUserFriends } from 'react-icons/fa';
 import { IoPersonAddSharp } from 'react-icons/io5';
 import { IoPersonRemoveSharp } from 'react-icons/io5';
+import { PiUserSwitch } from 'react-icons/pi';
 
 const page = ({ params }: { params: { roomId: string } }) => {
   // const { darkMode } = useSelector(
@@ -144,9 +145,12 @@ const page = ({ params }: { params: { roomId: string } }) => {
 
         {/* UCZESTNICY */}
         <div className="h-[43rem] bg-white shadow-md lg:w-[32rem] rounded-lg hidden lg:flex flex-col ">
-          <div className=" text-center font-bold flex justify-center items-end h-20">
+          <div className=" text-center font-bold flex justify-center items-end h-20 relative">
             <p className="border-b-2 border-gray-100 h-fit w-11/12 w-[98%] text-center pb-4">
               UCZESTNICY
+            </p>
+            <p className="absolute top-8 right-10">
+              <PiUserSwitch className="scale-[1.8] hover:scale-[2] hover:fill-[#E37BFF] transition-all cursor-pointer" />
             </p>
           </div>
           <div className=" px-2 h-full ">
@@ -294,7 +298,7 @@ const page = ({ params }: { params: { roomId: string } }) => {
       {/* KONIEC MAPA */}
       <div className="flex flex-wrap justify-center w-full mt-4 gap-4 mb-5">
         {/* CZAT */}
-        <div className="min-h-[24rem] max-h-[50rem] grow p-3 bg-white shadow-lg rounded-lg order-2 lg:order-1  flex justify-center items-center">
+        <div className="min-h-[24rem] max-h-[50rem] grow p-3 bg-white shadow-lg rounded-lg order-2 lg:order-1  flex justify-center items-center flex-col">
           <div className="w-full h-full flex-col rounded-lg no-scrollbar overflow-y-scroll flex justify-start  p-2 bg-slate-200">
             {/* WIADOMOŚĆ START */}
             <div className="w-full h-fit mb-2 flex bg-gray-50 rounded-lg shadow-lg p-2">
@@ -586,7 +590,7 @@ const page = ({ params }: { params: { roomId: string } }) => {
             {/* WIADOMOŚĆ KONIEC */}
           </div>
           {/* WPISYWANIE WIADOMOŚCI */}
-          <div className=" h-96 bg-white rounded-lg w-1/3 lg:order-2 order-1 w-11/12 lg:w-[32rem] flex px-1 flex-col justify-start items-center">
+          <div className=" h-96 bg-white rounded-lg w-1/3 lg:order-2 order-1 w-11/12 lg:w-[32rem] flex px-1 flex-col justify-start items-center mt-10">
             <div className="flex justify-center gap-2 text-sm items-center pb-2">
               <p>Zalogowano jako:</p>
               <p className="font-bold text-base text-[#E37BFF]">Dawid</p>

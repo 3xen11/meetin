@@ -8,6 +8,7 @@ import { RiMapPinLine } from 'react-icons/ri';
 import { ImMan } from 'react-icons/im';
 import { ImWoman } from 'react-icons/im';
 import { BsHourglassSplit } from 'react-icons/bs';
+import { FaStar } from 'react-icons/fa';
 
 type ToggleFavoriteAction = {
   type: 'TOGGLE_FAVORITE';
@@ -24,6 +25,7 @@ type HeartState = {
 
 type RoomsType = {
   id: string;
+  creator: string;
   title: string;
   date: string;
   city: string;
@@ -44,6 +46,7 @@ interface RoomCardProps extends HeartState, RoomsType {}
 const RoomCard: React.FC<RoomCardProps> = ({
   toggleFavoriteButton,
   id,
+  creator,
   title,
   date,
   city,
@@ -67,7 +70,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
     <div
       className={`${
         darkMode ? 'bg-darkMode-light' : 'bg-lightMode-light'
-      }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-64 xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap relative shadow-md hover:scale-[1.01] transition-all`}
+      }  w-full lg:w-11/12 ml-auto my-5 h-fit sm:h-[18rem] xl:h-60 flex-col rounded-b-xl sm:rounded-none sm:rounded-r-xl flex flex-wrap relative shadow-md hover:scale-[1.01] transition-all`}
     >
       {/* -- HEART -- */}
       <div
@@ -88,13 +91,13 @@ const RoomCard: React.FC<RoomCardProps> = ({
           alt="Mountains"
           width={600}
           height={500}
-          className=" h-60 sm:w-full sm:h-full "
+          className=" h-60 sm:w-full sm:h-full object-cover"
         />
       </div>
 
       {/* -- DESCRIPTION -- */}
       <div className="z-10 w-full sm:w-7/12 h-full flex flex-col justify-between md:w-7/12 p-2">
-        <div className="grow flex flex-col gap-2">
+        <div className="grow flex flex-col">
           {' '}
           <h5
             className={`${
@@ -103,90 +106,98 @@ const RoomCard: React.FC<RoomCardProps> = ({
           >
             {title}
           </h5>
-          <p className={`text-xs sm:text-sm flex p-1 gap-2 flex`}>
-            <FaRegCalendarAlt
-              className={`${
-                darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
-              } h-5 w-5`}
-            />{' '}
-            <span
-              className={`${
-                darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-              }`}
-            >
-              {date}
-            </span>
-          </p>
-          <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
-            <RiMapPinLine
-              className={`${
-                darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
-              } h-5 w-5`}
-            />{' '}
-            <span
-              className={`${
-                darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-              }`}
-            >
-              {city}/{country}
-            </span>
-          </p>
-          <div className={`text-xs sm:text-sm flex p-1 gap-2`}>
-            {gender === 'male' ? (
-              <ImMan
+          <div className="flex items-center">
+            {' '}
+            <p className="my-1 mr-2">{creator}</p>
+            <p className="text-sm">5.0</p>
+            <FaStar className="fill-[#E37BFF] ml-1 mb-1" />
+          </div>
+          <div className="flex flex-col my-auto">
+            <p className={`text-xs sm:text-sm flex p-1 gap-2 flex`}>
+              <FaRegCalendarAlt
                 className={`${
-                  darkMode ? 'fill-blue-500' : 'fill-blue-500'
+                  darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
                 } h-5 w-5`}
-              />
-            ) : gender === 'female' ? (
-              <ImWoman
+              />{' '}
+              <span
                 className={`${
-                  darkMode ? 'fill-pink-500' : 'fill-pink-500'
+                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+                }`}
+              >
+                {date}
+              </span>
+            </p>
+            <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
+              <RiMapPinLine
+                className={`${
+                  darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
                 } h-5 w-5`}
-              />
-            ) : (
-              <div className="flex">
+              />{' '}
+              <span
+                className={`${
+                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+                }`}
+              >
+                {city}/{country}
+              </span>
+            </p>
+            <div className={`text-xs sm:text-sm flex p-1 gap-2`}>
+              {gender === 'male' ? (
                 <ImMan
                   className={`${
                     darkMode ? 'fill-blue-500' : 'fill-blue-500'
-                  } h-5 w-5 -ml-1`}
+                  } h-5 w-5`}
                 />
+              ) : gender === 'female' ? (
                 <ImWoman
                   className={`${
                     darkMode ? 'fill-pink-500' : 'fill-pink-500'
-                  } h-5 w-5 -ml-2`}
+                  } h-5 w-5`}
                 />
-              </div>
-            )}
+              ) : (
+                <div className="flex">
+                  <ImMan
+                    className={`${
+                      darkMode ? 'fill-blue-500' : 'fill-blue-500'
+                    } h-5 w-5 -ml-1`}
+                  />
+                  <ImWoman
+                    className={`${
+                      darkMode ? 'fill-pink-500' : 'fill-pink-500'
+                    } h-5 w-5 -ml-2`}
+                  />
+                </div>
+              )}
 
-            <span
-              className={`${
-                darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-              }`}
-            >
-              Miejsca: {taken_spots}/{spots}
-            </span>
+              <span
+                className={`${
+                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+                }`}
+              >
+                Miejsca: {taken_spots}/{spots}
+              </span>
+            </div>
+            {/* wiek */}
+            <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
+              <BsHourglassSplit
+                className={`${
+                  darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
+                } h-5 w-5`}
+              />{' '}
+              <span
+                className={`${
+                  darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
+                }`}
+              >
+                Wiek: {min_age}-{max_age}
+              </span>
+            </p>
+            {/* wiek */}
           </div>
-          {/* wiek */}
-          <p className={`text-xs sm:text-sm flex p-1 gap-2`}>
-            <BsHourglassSplit
-              className={`${
-                darkMode ? 'fill-darkMode-text' : 'fill-lightMode-text'
-              } h-5 w-5`}
-            />{' '}
-            <span
-              className={`${
-                darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-              }`}
-            >
-              Wiek: {min_age}-{max_age}
-            </span>
-          </p>
-          {/* wiek */}
         </div>
 
         <div className="flex flex-col">
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div className="flex gap-2 flex-wrap">
               {tags.map((tag, i) => {
                 return (
@@ -204,7 +215,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
             <p
               className={` ${
                 darkMode ? 'text-darkMode-text' : 'text-lightMode-text'
-              } text-center flex items-center text-darkMode-text w-fit p-1 h-fit text-sm sm:text-xl`}
+              }  flex items-center justify-center text-darkMode-text w-fit p-1 h-fit text-sm sm:text-lg min-w-fit`}
             >
               {price} {currency}
             </p>
